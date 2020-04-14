@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  FiveDayTempsViewController.swift
 //  Detroit Labs Forecast
 //
 //  Created by David G Chopin on 4/14/20.
@@ -8,13 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class FiveDayTempsViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
-
-
 }
-

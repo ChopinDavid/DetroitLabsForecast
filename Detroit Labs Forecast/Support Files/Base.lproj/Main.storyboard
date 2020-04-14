@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--5 Day Temperatures-->
+        <scene sceneID="y8C-jr-znv">
+            <objects>
+                <viewController storyboardIdentifier="FiveDayTempsViewController" id="UdL-EJ-DUT" customClass="FiveDayTempsViewController" customModule="Detroit_Labs_Forecast" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GAL-KV-5Xg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="6ra-IW-gMQ"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="5 Day Temperatures" image="calendar" catalog="system" id="JEd-Pb-Rdx"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xJH-02-UtK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="615" y="301"/>
+        </scene>
+        <!--Current Temperature-->
+        <scene sceneID="RYa-4G-AoS">
+            <objects>
+                <viewController storyboardIdentifier="CurrentTemperatureViewController" id="dQw-gH-tDh" customClass="CurrentTemperatureViewController" customModule="Detroit_Labs_Forecast" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vBM-43-nqf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="ZcF-mz-wHX"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Current Temperature" image="temperature" id="oDm-YY-EpH"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xuv-QP-pPm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="615" y="-346"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="SID-3q-iAJ">
+            <objects>
+                <tabBarController id="fm4-fw-QpH" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2H5-nf-fTg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="dQw-gH-tDh" kind="relationship" relationship="viewControllers" id="xL6-AP-q2g"/>
+                        <segue destination="UdL-EJ-DUT" kind="relationship" relationship="viewControllers" id="8YE-NM-5gq"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NnV-me-30U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-304" y="-22"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="calendar" catalog="system" width="64" height="52"/>
+        <image name="temperature" width="25" height="25"/>
+    </resources>
+</document>

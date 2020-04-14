@@ -9,21 +9,25 @@
 /* Begin PBXBuildFile section */
 		63A975722446223800A00DCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A975712446223800A00DCF /* AppDelegate.swift */; };
 		63A975742446223800A00DCF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A975732446223800A00DCF /* SceneDelegate.swift */; };
-		63A975762446223800A00DCF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A975752446223800A00DCF /* ViewController.swift */; };
+		63A975762446223800A00DCF /* CurrentTemperatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A975752446223800A00DCF /* CurrentTemperatureViewController.swift */; };
 		63A975792446223800A00DCF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63A975772446223800A00DCF /* Main.storyboard */; };
 		63A9757B2446223A00A00DCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63A9757A2446223A00A00DCF /* Assets.xcassets */; };
 		63A9757E2446223A00A00DCF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63A9757C2446223A00A00DCF /* LaunchScreen.storyboard */; };
+		63A9758A2446232200A00DCF /* FiveDayTempsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A975892446232200A00DCF /* FiveDayTempsViewController.swift */; };
+		63A9758C2446251600A00DCF /* OpenWeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A9758B2446251600A00DCF /* OpenWeatherManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		63A9756E2446223800A00DCF /* Detroit Labs Forecast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Detroit Labs Forecast.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63A975712446223800A00DCF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63A975732446223800A00DCF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		63A975752446223800A00DCF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		63A975752446223800A00DCF /* CurrentTemperatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTemperatureViewController.swift; sourceTree = "<group>"; };
 		63A975782446223800A00DCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		63A9757A2446223A00A00DCF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		63A9757D2446223A00A00DCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		63A9757F2446223A00A00DCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63A975892446232200A00DCF /* FiveDayTempsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiveDayTempsViewController.swift; sourceTree = "<group>"; };
+		63A9758B2446251600A00DCF /* OpenWeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +60,49 @@
 		63A975702446223800A00DCF /* Detroit Labs Forecast */ = {
 			isa = PBXGroup;
 			children = (
+				63A975882446226F00A00DCF /* Support Files */,
+				63A975852446224C00A00DCF /* Models */,
+				63A975862446225700A00DCF /* Views */,
+				63A975872446225E00A00DCF /* Controllers */,
+			);
+			path = "Detroit Labs Forecast";
+			sourceTree = "<group>";
+		};
+		63A975852446224C00A00DCF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				63A9758B2446251600A00DCF /* OpenWeatherManager.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		63A975862446225700A00DCF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		63A975872446225E00A00DCF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				63A975752446223800A00DCF /* CurrentTemperatureViewController.swift */,
+				63A975892446232200A00DCF /* FiveDayTempsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		63A975882446226F00A00DCF /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
 				63A975712446223800A00DCF /* AppDelegate.swift */,
 				63A975732446223800A00DCF /* SceneDelegate.swift */,
-				63A975752446223800A00DCF /* ViewController.swift */,
 				63A975772446223800A00DCF /* Main.storyboard */,
 				63A9757A2446223A00A00DCF /* Assets.xcassets */,
 				63A9757C2446223A00A00DCF /* LaunchScreen.storyboard */,
 				63A9757F2446223A00A00DCF /* Info.plist */,
 			);
-			path = "Detroit Labs Forecast";
+			path = "Support Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +176,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63A975762446223800A00DCF /* ViewController.swift in Sources */,
+				63A975762446223800A00DCF /* CurrentTemperatureViewController.swift in Sources */,
 				63A975722446223800A00DCF /* AppDelegate.swift in Sources */,
+				63A9758A2446232200A00DCF /* FiveDayTempsViewController.swift in Sources */,
+				63A9758C2446251600A00DCF /* OpenWeatherManager.swift in Sources */,
 				63A975742446223800A00DCF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,7 +326,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PL5L36Z2JF;
-				INFOPLIST_FILE = "Detroit Labs Forecast/Info.plist";
+				INFOPLIST_FILE = "Detroit Labs Forecast/Support Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,7 +344,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PL5L36Z2JF;
-				INFOPLIST_FILE = "Detroit Labs Forecast/Info.plist";
+				INFOPLIST_FILE = "Detroit Labs Forecast/Support Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
