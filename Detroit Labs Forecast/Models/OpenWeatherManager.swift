@@ -31,7 +31,7 @@ class OpenWeatherManager {
         task.resume()
     }
     
-    func getFiveDayForecast(from coordinates: CLLocationCoordinate2D, completion: @escaping ([WeatherSnapshot]?, Error?) -> Void) {
+    func getFiveDayForecast(from coordinates: CLLocationCoordinate2D, completion: @escaping ([Int]?, [WeatherSnapshot]?, Error?) -> Void) {
         let urlString: String = "https://api.openweathermap.org/data/2.5/forecast?lat=\(coordinates.latitude)&lon=\(coordinates.longitude)&units=imperial&appid=\(apiKey)"
         print(urlString)
         let request = URLRequest(url: URL(string: urlString)!, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 60)
@@ -42,7 +42,7 @@ class OpenWeatherManager {
             guard let jsonObject = try? (JSONSerialization.jsonObject(with: unwrappedData, options: []) as! [String:Any]) else {
                 return
             }
-            completion(WeatherSnapshot.array(from: jsonObject), nil)
+            completion(WeatherSnapshot.array(from: jsonObject).0, WeatherSnapshot.array(from: jsonObject).1, nil)
         }
         task.resume()
     }

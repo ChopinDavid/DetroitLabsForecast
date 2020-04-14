@@ -73,7 +73,7 @@ class WeatherSnapshot {
         self.init(coord: CLLocationCoordinate2D(latitude: lat, longitude: long), weatherId: weatherId, weatherDescription: weatherDescription, weatherIcon: weatherIcon, temp: temp, feelsLike: feelsLike, tempMin: tempMin, tempMax: tempMax, pressure: pressure, humidity: humidity, windSpeed: windSpeed, windDirection: windDirection, country: country, sunrise: sunrise, sunset: sunset, name: name, time: time)
     }
     
-    static func array(from dict: [String:Any]) -> [WeatherSnapshot] {
+    static func array(from dict: [String:Any]) -> ([Int], [WeatherSnapshot]) {
         let city: [String:Any] = dict["city"] as! [String:Any]
         let coord: [String:Double] = city["coord"] as! [String:Double]
         let list = dict["list"] as! [[String:Any]]
@@ -92,9 +92,10 @@ class WeatherSnapshot {
                 mutableDay["sys"] = ["sunrise":city["sunrise"] as! Int, "sunset":city["sunset"] as! Int]
                 snapshots.append(WeatherSnapshot(dict: mutableDay))
             } else {
-                return snapshots
+                let set = Array(Set(snapshots.map({ calendar.ordinality(of: .day, in: .year, for: Date(timeIntervalSince1970: TimeInterval($0.time)))! }))).sorted()
+                return (set, snapshots)
             }
         }
-        return snapshots
+        return ([],snapshots)
     }
 }

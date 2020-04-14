@@ -13,6 +13,7 @@ class FiveDayTempsViewController: UIViewController {
     
     var locationManager: CLLocationManager = CLLocationManager()
     var weatherSnapshots: [WeatherSnapshot]!
+    var sections: [Int]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,13 +54,14 @@ extension FiveDayTempsViewController: CLLocationManagerDelegate {
         if let location = locations.first {
             
             print("Found user's location: \(location)")
-            OpenWeatherManager.shared.getFiveDayForecast(from: location.coordinate) { (weatherSnapshots, error) in
+            OpenWeatherManager.shared.getFiveDayForecast(from: location.coordinate) { (days, weatherSnapshots, error) in
                 DispatchQueue.main.async {
                     guard error == nil else {
                         self.presentError()
                         return
                     }
                     
+                    self.sections = days
                     self.weatherSnapshots = weatherSnapshots
                     self.tableView.reloadData()
                 }
@@ -85,11 +87,34 @@ extension FiveDayTempsViewController: CLLocationManagerDelegate {
 }
 
 extension FiveDayTempsViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if weatherSnapshots == nil {
+            return "Loading Forecast"
+        } else {
+            let calendar = Calendar.current
+            let year = calendar.component(.year, from: Date(timeIntervalSince1970: TimeInterval(weatherSnapshots[0].time)))  // 2017
+            let date = DateComponents(calendar: calendar, year: year, day: sections[section]).date!
+            return date.timeIntervalSince1970.unixToDateString()
+        }
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        if weatherSnapshots == nil {
+            return 1
+        } else {
+            return 5
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if weatherSnapshots == nil {
             return 1
         } else {
-            return weatherSnapshots.count
+            let calendar = Calendar.current
+            let dayOfYear = sections[section]
+            let days = weatherSnapshots.filter({ calendar.ordinality(of: .day, in: .year, for: Date(timeIntervalSince1970: TimeInterval($0.time)))! == dayOfYear })
+            return days.count
         }
     }
     
@@ -99,10 +124,16 @@ extension FiveDayTempsViewController: UITableViewDelegate, UITableViewDataSource
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ForecastCell") as! ForecastTableViewCell
-            cell.timeLabel.text = weatherSnapshots[indexPath.row].time.unixToDateString()
-            cell.weatherImageView.sd_setImage(with: URL(string: "https://openweathermap.org/img/wn/\(weatherSnapshots[indexPath.row].weatherIcon)@2x.png")) { (image, error, cacheType, url) in }
-            cell.temperatureLabel.text = "\(String(format: "%.1f", weatherSnapshots[indexPath.row].temp))° F"
+            let calendar = Calendar.current
+            let snapshotsOnDate = weatherSnapshots.filter({ calendar.ordinality(of: .day, in: .year, for: Date(timeIntervalSince1970: TimeInterval($0.time))) == sections[indexPath.section] })
+            cell.timeLabel.text = TimeInterval(snapshotsOnDate[indexPath.row].time).unixToTimeString()
+            cell.weatherImageView.sd_setImage(with: URL(string: "https://openweathermap.org/img/wn/\(snapshotsOnDate[indexPath.row].weatherIcon)@2x.png")) { (image, error, cacheType, url) in }
+            cell.temperatureLabel.text = "\(String(format: "%.1f", snapshotsOnDate[indexPath.row].temp))° F"
             return cell
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
     }
 }

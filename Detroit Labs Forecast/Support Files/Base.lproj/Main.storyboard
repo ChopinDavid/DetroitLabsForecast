@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="25M-sS-PrI">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LoadingCell" id="Xu1-Ya-rhq" customClass="LoadingTableViewCell" customModule="Detroit_Labs_Forecast" customModuleProvider="target">
@@ -91,7 +91,7 @@
                         <constraints>
                             <constraint firstItem="25M-sS-PrI" firstAttribute="leading" secondItem="6ra-IW-gMQ" secondAttribute="leading" id="Ghy-MY-aB2"/>
                             <constraint firstItem="6ra-IW-gMQ" firstAttribute="bottom" secondItem="25M-sS-PrI" secondAttribute="bottom" id="PyK-fr-fAn"/>
-                            <constraint firstItem="25M-sS-PrI" firstAttribute="top" secondItem="GAL-KV-5Xg" secondAttribute="top" id="fcx-Ul-t6v"/>
+                            <constraint firstItem="25M-sS-PrI" firstAttribute="top" secondItem="6ra-IW-gMQ" secondAttribute="top" id="fcx-Ul-t6v"/>
                             <constraint firstItem="6ra-IW-gMQ" firstAttribute="trailing" secondItem="25M-sS-PrI" secondAttribute="trailing" id="vnU-41-cxe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6ra-IW-gMQ"/>
