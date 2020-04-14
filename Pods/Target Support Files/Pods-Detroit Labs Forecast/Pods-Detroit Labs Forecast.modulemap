@@ -1,0 +1,6 @@
+framework module Pods_Detroit_Labs_Forecast {
+  umbrella header "Pods-Detroit Labs Forecast-umbrella.h"
+
+  export *
+  module * { export * }
+}

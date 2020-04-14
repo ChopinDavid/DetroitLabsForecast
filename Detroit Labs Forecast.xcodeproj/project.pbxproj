@@ -3,10 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5FDD0EE616A38C22793234D4 /* Pods_Detroit_Labs_Forecast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15CDAEC739C9D62FA5F636FC /* Pods_Detroit_Labs_Forecast.framework */; };
+		636E28C0244639480079C549 /* CLLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636E28BF244639480079C549 /* CLLocation.swift */; };
+		636E28C7244642650079C549 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636E28C6244642650079C549 /* UIViewController.swift */; };
+		636E28C9244643970079C549 /* WeatherSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636E28C8244643970079C549 /* WeatherSnapshot.swift */; };
+		636E28CB244655F40079C549 /* LoadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636E28CA244655F40079C549 /* LoadingTableViewCell.swift */; };
+		636E28CD244657460079C549 /* ForecastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636E28CC244657460079C549 /* ForecastTableViewCell.swift */; };
+		636E28CF244661220079C549 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636E28CE244661220079C549 /* Int.swift */; };
 		63A975722446223800A00DCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A975712446223800A00DCF /* AppDelegate.swift */; };
 		63A975742446223800A00DCF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A975732446223800A00DCF /* SceneDelegate.swift */; };
 		63A975762446223800A00DCF /* CurrentTemperatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A975752446223800A00DCF /* CurrentTemperatureViewController.swift */; };
@@ -18,6 +25,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		098CAEBF918707B460A4A4DA /* Pods-Detroit Labs Forecast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Detroit Labs Forecast.debug.xcconfig"; path = "Target Support Files/Pods-Detroit Labs Forecast/Pods-Detroit Labs Forecast.debug.xcconfig"; sourceTree = "<group>"; };
+		15CDAEC739C9D62FA5F636FC /* Pods_Detroit_Labs_Forecast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Detroit_Labs_Forecast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		636E28BF244639480079C549 /* CLLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocation.swift; sourceTree = "<group>"; };
+		636E28C6244642650079C549 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		636E28C8244643970079C549 /* WeatherSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSnapshot.swift; sourceTree = "<group>"; };
+		636E28CA244655F40079C549 /* LoadingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingTableViewCell.swift; sourceTree = "<group>"; };
+		636E28CC244657460079C549 /* ForecastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastTableViewCell.swift; sourceTree = "<group>"; };
+		636E28CE244661220079C549 /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		63A9756E2446223800A00DCF /* Detroit Labs Forecast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Detroit Labs Forecast.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63A975712446223800A00DCF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63A975732446223800A00DCF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,6 +43,7 @@
 		63A9757F2446223A00A00DCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63A975892446232200A00DCF /* FiveDayTempsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiveDayTempsViewController.swift; sourceTree = "<group>"; };
 		63A9758B2446251600A00DCF /* OpenWeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWeatherManager.swift; sourceTree = "<group>"; };
+		EB38AC1CE9100C48B7FD5649 /* Pods-Detroit Labs Forecast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Detroit Labs Forecast.release.xcconfig"; path = "Target Support Files/Pods-Detroit Labs Forecast/Pods-Detroit Labs Forecast.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +51,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FDD0EE616A38C22793234D4 /* Pods_Detroit_Labs_Forecast.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		636E28BE2446390B0079C549 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				636E28BF244639480079C549 /* CLLocation.swift */,
+				636E28C6244642650079C549 /* UIViewController.swift */,
+				636E28CE244661220079C549 /* Int.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		63A975652446223800A00DCF = {
 			isa = PBXGroup;
 			children = (
 				63A975702446223800A00DCF /* Detroit Labs Forecast */,
 				63A9756F2446223800A00DCF /* Products */,
+				6657A957E9EE342FF28FB1AA /* Pods */,
+				D3B30F0858395CE8D29A5575 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +93,7 @@
 				63A975852446224C00A00DCF /* Models */,
 				63A975862446225700A00DCF /* Views */,
 				63A975872446225E00A00DCF /* Controllers */,
+				636E28BE2446390B0079C549 /* Extensions */,
 			);
 			path = "Detroit Labs Forecast";
 			sourceTree = "<group>";
@@ -72,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				63A9758B2446251600A00DCF /* OpenWeatherManager.swift */,
+				636E28C8244643970079C549 /* WeatherSnapshot.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -79,6 +110,8 @@
 		63A975862446225700A00DCF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				636E28CA244655F40079C549 /* LoadingTableViewCell.swift */,
+				636E28CC244657460079C549 /* ForecastTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -105,6 +138,23 @@
 			path = "Support Files";
 			sourceTree = "<group>";
 		};
+		6657A957E9EE342FF28FB1AA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				098CAEBF918707B460A4A4DA /* Pods-Detroit Labs Forecast.debug.xcconfig */,
+				EB38AC1CE9100C48B7FD5649 /* Pods-Detroit Labs Forecast.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		D3B30F0858395CE8D29A5575 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				15CDAEC739C9D62FA5F636FC /* Pods_Detroit_Labs_Forecast.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -112,9 +162,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 63A975822446223A00A00DCF /* Build configuration list for PBXNativeTarget "Detroit Labs Forecast" */;
 			buildPhases = (
+				D406834295E3AF3727CC9BE2 /* [CP] Check Pods Manifest.lock */,
 				63A9756A2446223800A00DCF /* Sources */,
 				63A9756B2446223800A00DCF /* Frameworks */,
 				63A9756C2446223800A00DCF /* Resources */,
+				9981A6E61FBBE47405F85CF6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -171,16 +223,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9981A6E61FBBE47405F85CF6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Detroit Labs Forecast/Pods-Detroit Labs Forecast-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Detroit Labs Forecast/Pods-Detroit Labs Forecast-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Detroit Labs Forecast/Pods-Detroit Labs Forecast-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D406834295E3AF3727CC9BE2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Detroit Labs Forecast-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		63A9756A2446223800A00DCF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				636E28C9244643970079C549 /* WeatherSnapshot.swift in Sources */,
+				636E28C7244642650079C549 /* UIViewController.swift in Sources */,
+				636E28CB244655F40079C549 /* LoadingTableViewCell.swift in Sources */,
 				63A975762446223800A00DCF /* CurrentTemperatureViewController.swift in Sources */,
 				63A975722446223800A00DCF /* AppDelegate.swift in Sources */,
 				63A9758A2446232200A00DCF /* FiveDayTempsViewController.swift in Sources */,
 				63A9758C2446251600A00DCF /* OpenWeatherManager.swift in Sources */,
+				636E28CF244661220079C549 /* Int.swift in Sources */,
 				63A975742446223800A00DCF /* SceneDelegate.swift in Sources */,
+				636E28C0244639480079C549 /* CLLocation.swift in Sources */,
+				636E28CD244657460079C549 /* ForecastTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +422,7 @@
 		};
 		63A975832446223A00A00DCF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 098CAEBF918707B460A4A4DA /* Pods-Detroit Labs Forecast.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -340,6 +441,7 @@
 		};
 		63A975842446223A00A00DCF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB38AC1CE9100C48B7FD5649 /* Pods-Detroit Labs Forecast.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
