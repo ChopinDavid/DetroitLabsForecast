@@ -10,6 +10,7 @@ import UIKit
 import CoreLocation
 import SDWebImage
 
+//As the name implies, the CurrentTemperatureViewController is the view controller that shows the current temperature at the user's current location
 class CurrentTemperatureViewController: UIViewController {
     
     @IBOutlet var weatherImageView: UIImageView!
@@ -18,11 +19,13 @@ class CurrentTemperatureViewController: UIViewController {
     @IBOutlet var locationLabel: UILabel!
     @IBOutlet var reloadButton: UIButton!
     
+    //We use a CLLocationManager to grab the user's location
     var locationManager: CLLocationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Set the locationManager's delegate and request authorization
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
@@ -57,9 +60,12 @@ class CurrentTemperatureViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        //We simply call this to round our reloadButton
         reloadButton.layer.cornerRadius = reloadButton.frame.height / 2
     }
     
+    //When the reloadButton is pressed, we are essentially "resetting" the view controller.
+    //The labels and weather image all return to their default state and we request the user's location again
     @IBAction func reloadButtonPressed(_ sender: Any) {
         if #available(iOS 13.0, *), traitCollection.userInterfaceStyle == .dark {
             weatherImageView.backgroundColor = .systemGray6
@@ -76,22 +82,30 @@ class CurrentTemperatureViewController: UIViewController {
 }
 
 extension CurrentTemperatureViewController: CLLocationManagerDelegate {
+    //Assuming we can successfully access the user's location, this delegate method is called whenever our locationManager grabs the user's location
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location: CLLocation = locations.first {
             
             print("Found user's location: \(location)")
             
-            //Using a dispatch group so that the reload button is only visible after both asynchronous requests for the weather snapshot and the current placename are completed
+            //We are using a dispatch group so that the reload button is only visible after both asynchronous requests for the weather snapshot and the current placename are completed
             let group: DispatchGroup = DispatchGroup()
             
             group.enter()
+            
+            //getPlaceName is a CLLocation extension method I wrote to convert a CLLocation into its respective place name
             location.getPlaceName { (placeName, error) in
                 group.leave()
                 DispatchQueue.main.async {
                     guard error == nil else {
-                        if error is CLLocationError {
-                            //We were unable to get the location name
-                            self.presentError(description: "The location name could not be found.")
+                        if let locationError = error as? CLLocationError {
+                            if locationError == .noPlacemarksReturned {
+                                //No placemarks were returned for this query
+                                self.presentError(description: "No place names were returned for this location.")
+                            } else {
+                                //We were unable to get the location name
+                                self.presentError(description: "The location name could not be found.")
+                            }
                         } else {
                             //Unknown error occured
                             self.presentError()
@@ -104,6 +118,8 @@ extension CurrentTemperatureViewController: CLLocationManagerDelegate {
             }
             
             group.enter()
+            
+            //We also grab the weather snapshot for the current locaation's coordinate
             OpenWeatherManager.shared.getSnapshot(from: location.coordinate) { (weatherSnapshot, error) in
                 group.leave()
                 DispatchQueue.main.async {
@@ -119,6 +135,7 @@ extension CurrentTemperatureViewController: CLLocationManagerDelegate {
                 }
             }
             
+            //Once both asynchronous tasks are complete, we let users use the reload button again
             group.notify(queue: .main) {
                 self.reloadButton.isHidden = false
             }
@@ -132,14 +149,17 @@ extension CurrentTemperatureViewController: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        
+        //Whenever location authorization status changes, we have to set whether the container view controller's locationRequestView is hidden accordingly
         switch status {
         case .authorizedAlways, .authorizedWhenInUse:
+            //If we can get the users location, we hide the locationRequestView
             if let tabBarController: TabBarController = tabBarController as? TabBarController {
                 tabBarController.containerViewController.locationRequestView.isHidden = true
             }
             locationManager.requestLocation()
+            
         default:
+            //If we cannot get the users location, we show the locationRequestView
             if let tabBarController: TabBarController = tabBarController as? TabBarController {
                 tabBarController.containerViewController.locationRequestView.isHidden = false
             }

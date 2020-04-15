@@ -9,5 +9,6 @@
 import UIKit
 
 class TabBarController: UITabBarController {
+    //We only make a custom subclass of UITabBarController so that our view controllers can communicate with our containing view controller without the use of Notifications
     var containerViewController: ContainerViewController!
 }

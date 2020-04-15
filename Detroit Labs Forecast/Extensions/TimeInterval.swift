@@ -9,20 +9,23 @@
 import Foundation
 
 extension TimeInterval {
+    
+    //Method for converting a TimeInterval into a string representation of the TimeInterval's day
     func unixToDateString() -> String {
         let date: Date = Date(timeIntervalSince1970: Double(self))
         let formatter: DateFormatter = DateFormatter()
-        // initially set the format based on your datepicker date / server String
+        //We only want the weekday, month, day, and year
         formatter.dateFormat = "E, MMM d, yyyy"
 
         return formatter.string(from: date)
         
     }
     
+    //Method for converting a TimeInterval into a string representation of the TimeInterval's time of day
     func unixToTimeString() -> String {
         let date: Date = Date(timeIntervalSince1970: Double(self))
         let formatter: DateFormatter = DateFormatter()
-        // initially set the format based on your datepicker date / server String
+        //We only want the time of day
         formatter.dateFormat = "h:mm a"
 
         return formatter.string(from: date)

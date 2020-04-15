@@ -9,23 +9,30 @@
 import CoreLocation
 
 extension CLLocation {
+    
+    //The getPlaceName method takes a CLLocation and completes with the string representation of that location, or an error
     func getPlaceName(completion: @escaping (String?, Error?) -> Void) {
+        
+        //We can use a CLGeocoder to convert aa CLLocation to an array of CLPlacemarks
         let geocoder: CLGeocoder = CLGeocoder()
         geocoder.reverseGeocodeLocation(self) { placemarks, error in
             
+            //Check errors
             guard error == nil else {
                 print("*** Error in \(#function): \(error!.localizedDescription)")
                 completion(nil, error)
                 return
             }
             
+            //If there are no placemarks returned, complete with the CLLocationError.noPlacemarksReturned error
             guard let placemark: CLPlacemark = placemarks?[0] else {
                 print("*** Error in \(#function): placemark is nil")
                 completion(nil, CLLocationError.noPlacemarksReturned)
                 return
             }
             
-            var nameString = ""
+            //Create an empty, mutable string
+            var nameString: String = ""
             
             // City
             let city: String? = placemark.subAdministrativeArea
@@ -37,6 +44,7 @@ extension CLLocation {
             //Name, if all else fails
             let name: String? = placemark.name
             
+            //Check which elements of the placemark are available and structure the nameString accordingly
             if city != nil {
                 nameString = city!
                 if state != nil {
@@ -54,8 +62,11 @@ extension CLLocation {
             } else if name != nil {
                 nameString = name!
             } else {
+                //If no placename elements were returned, complete with a CLLocationError.unableToGetLocationName error
                 completion(nil, CLLocationError.unableToGetLocationName)
             }
+            
+            //Complete with the nameString we built
             completion(nameString, nil)
         }
     }

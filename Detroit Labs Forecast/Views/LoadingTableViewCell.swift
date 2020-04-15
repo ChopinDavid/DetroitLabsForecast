@@ -8,6 +8,7 @@
 
 import UIKit
 
+//The LoadingTableViewCell is simply the cell that is shown when our five day forecast data is being loaded
 class LoadingTableViewCell: UITableViewCell {
     @IBOutlet var activityIndicatorView: UIActivityIndicatorView!
 }

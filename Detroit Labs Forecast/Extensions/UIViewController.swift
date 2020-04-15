@@ -9,6 +9,8 @@
 import UIKit
 
 extension UIViewController {
+    //This is an extension to UIViewController that lets us present an error alert to the user.
+    //If no description is passed, the view controller will present an "Unknown error" alert
     func presentError(description: String = "An unknown error occurred.") {
         let alertController: UIAlertController = UIAlertController(title: "Error", message: description, preferredStyle: .alert)
         let ok: UIAlertAction = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
