@@ -77,7 +77,7 @@ class CurrentTemperatureViewController: UIViewController {
 
 extension CurrentTemperatureViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.first {
+        if let location: CLLocation = locations.first {
             
             print("Found user's location: \(location)")
             
@@ -135,12 +135,12 @@ extension CurrentTemperatureViewController: CLLocationManagerDelegate {
         
         switch status {
         case .authorizedAlways, .authorizedWhenInUse:
-            if let tabBarController = tabBarController as? TabBarController {
+            if let tabBarController: TabBarController = tabBarController as? TabBarController {
                 tabBarController.containerViewController.locationRequestView.isHidden = true
             }
             locationManager.requestLocation()
         default:
-            if let tabBarController = tabBarController as? TabBarController {
+            if let tabBarController: TabBarController = tabBarController as? TabBarController {
                 tabBarController.containerViewController.locationRequestView.isHidden = false
             }
         }

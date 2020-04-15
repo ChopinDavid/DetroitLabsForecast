@@ -10,8 +10,8 @@ import UIKit
 
 extension UIViewController {
     func presentError(description: String = "An unknown error occurred.") {
-        let alertController = UIAlertController(title: "Error", message: description, preferredStyle: .alert)
-        let ok = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
+        let alertController: UIAlertController = UIAlertController(title: "Error", message: description, preferredStyle: .alert)
+        let ok: UIAlertAction = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
         alertController.addAction(ok)
         self.present(alertController, animated: true, completion: nil)
     }

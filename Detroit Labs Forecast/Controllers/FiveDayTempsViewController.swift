@@ -35,7 +35,7 @@ class FiveDayTempsViewController: UIViewController {
 
 extension FiveDayTempsViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.first {
+        if let location: CLLocation = locations.first {
             
             print("Found user's location: \(location)")
             OpenWeatherManager.shared.getFiveDayForecast(from: location.coordinate) { (days, weatherSnapshots, error) in
@@ -63,12 +63,12 @@ extension FiveDayTempsViewController: CLLocationManagerDelegate {
         
         switch status {
         case .authorizedAlways, .authorizedWhenInUse:
-            if let tabBarController = tabBarController as? TabBarController {
+            if let tabBarController: TabBarController = tabBarController as? TabBarController {
                 tabBarController.containerViewController.locationRequestView.isHidden = true
             }
             locationManager.requestLocation()
         default:
-            if let tabBarController = tabBarController as? TabBarController {
+            if let tabBarController: TabBarController = tabBarController as? TabBarController {
                 tabBarController.containerViewController.locationRequestView.isHidden = false
             }
         }
@@ -81,9 +81,9 @@ extension FiveDayTempsViewController: UITableViewDelegate, UITableViewDataSource
         if weatherSnapshots == nil {
             return "Loading Forecast"
         } else {
-            let calendar = Calendar.current
-            let year = calendar.component(.year, from: Date(timeIntervalSince1970: TimeInterval(weatherSnapshots[0].time)))  // 2017
-            let date = DateComponents(calendar: calendar, year: year, day: sections[section]).date!
+            let calendar: Calendar = Calendar.current
+            let year: Int = calendar.component(.year, from: Date(timeIntervalSince1970: TimeInterval(weatherSnapshots[0].time)))  // 2017
+            let date: Date = DateComponents(calendar: calendar, year: year, day: sections[section]).date!
             return date.timeIntervalSince1970.unixToDateString()
         }
     }
@@ -100,24 +100,25 @@ extension FiveDayTempsViewController: UITableViewDelegate, UITableViewDataSource
         if weatherSnapshots == nil {
             return 1
         } else {
-            let calendar = Calendar.current
-            let dayOfYear = sections[section]
-            let days = weatherSnapshots.filter({ calendar.ordinality(of: .day, in: .year, for: Date(timeIntervalSince1970: TimeInterval($0.time)))! == dayOfYear })
-            return days.count
+            let calendar: Calendar = Calendar.current
+            let dayOfYear: Int = sections[section]
+            let snapshotsOnDay: [WeatherSnapshot] = weatherSnapshots.filter({ calendar.ordinality(of: .day, in: .year, for: Date(timeIntervalSince1970: TimeInterval($0.time)))! == dayOfYear })
+            return snapshotsOnDay.count
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if weatherSnapshots == nil {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "LoadingCell") as! LoadingTableViewCell
+            let cell: LoadingTableViewCell = tableView.dequeueReusableCell(withIdentifier: "LoadingCell") as! LoadingTableViewCell
             return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ForecastCell") as! ForecastTableViewCell
-            let calendar = Calendar.current
-            let snapshotsOnDate = weatherSnapshots.filter({ calendar.ordinality(of: .day, in: .year, for: Date(timeIntervalSince1970: TimeInterval($0.time))) == sections[indexPath.section] })
-            cell.timeLabel.text = TimeInterval(snapshotsOnDate[indexPath.row].time).unixToTimeString()
-            cell.weatherImageView.sd_setImage(with: URL(string: "https://openweathermap.org/img/wn/\(snapshotsOnDate[indexPath.row].weatherIcon)@2x.png")) { (image, error, cacheType, url) in }
-            cell.temperatureLabel.text = "\(String(format: "%.1f", snapshotsOnDate[indexPath.row].temp))° F"
+            let cell: ForecastTableViewCell = tableView.dequeueReusableCell(withIdentifier: "ForecastCell") as! ForecastTableViewCell
+            let calendar: Calendar = Calendar.current
+            let dayOfYear: Int = sections[indexPath.section]
+            let snapshotsOnDay: [WeatherSnapshot] = weatherSnapshots.filter({ calendar.ordinality(of: .day, in: .year, for: Date(timeIntervalSince1970: TimeInterval($0.time))) == dayOfYear })
+            cell.timeLabel.text = TimeInterval(snapshotsOnDay[indexPath.row].time).unixToTimeString()
+            cell.weatherImageView.sd_setImage(with: URL(string: "https://openweathermap.org/img/wn/\(snapshotsOnDay[indexPath.row].weatherIcon)@2x.png")) { (image, error, cacheType, url) in }
+            cell.temperatureLabel.text = "\(String(format: "%.1f", snapshotsOnDay[indexPath.row].temp))° F"
             return cell
         }
     }

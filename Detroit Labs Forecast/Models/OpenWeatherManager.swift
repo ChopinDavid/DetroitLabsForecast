@@ -17,12 +17,12 @@ class OpenWeatherManager {
     func getSnapshot(from coordinates: CLLocationCoordinate2D, completion: @escaping (WeatherSnapshot?, Error?) -> Void) {
         let urlString: String = "https://api.openweathermap.org/data/2.5/weather?lat=\(coordinates.latitude)&lon=\(coordinates.longitude)&units=imperial&appid=\(apiKey)"
         print(urlString)
-        let request = URLRequest(url: URL(string: urlString)!, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 60)
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            guard let unwrappedData = data else {
+        let request: URLRequest = URLRequest(url: URL(string: urlString)!, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 60)
+        let task: URLSessionDataTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard let unwrappedData: Data = data else {
                 return
             }
-            guard let jsonObject = try? (JSONSerialization.jsonObject(with: unwrappedData, options: []) as! [String:Any]) else {
+            guard let jsonObject: [String:Any] = try? (JSONSerialization.jsonObject(with: unwrappedData, options: []) as! [String:Any]) else {
                 return
             }
             let snapshot: WeatherSnapshot = WeatherSnapshot(dict: jsonObject)
@@ -34,12 +34,12 @@ class OpenWeatherManager {
     func getFiveDayForecast(from coordinates: CLLocationCoordinate2D, completion: @escaping ([Int]?, [WeatherSnapshot]?, Error?) -> Void) {
         let urlString: String = "https://api.openweathermap.org/data/2.5/forecast?lat=\(coordinates.latitude)&lon=\(coordinates.longitude)&units=imperial&appid=\(apiKey)"
         print(urlString)
-        let request = URLRequest(url: URL(string: urlString)!, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 60)
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            guard let unwrappedData = data else {
+        let request: URLRequest = URLRequest(url: URL(string: urlString)!, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 60)
+        let task: URLSessionDataTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard let unwrappedData: Data = data else {
                 return
             }
-            guard let jsonObject = try? (JSONSerialization.jsonObject(with: unwrappedData, options: []) as! [String:Any]) else {
+            guard let jsonObject: [String:Any] = try? (JSONSerialization.jsonObject(with: unwrappedData, options: []) as! [String:Any]) else {
                 return
             }
             completion(WeatherSnapshot.array(from: jsonObject).0, WeatherSnapshot.array(from: jsonObject).1, nil)

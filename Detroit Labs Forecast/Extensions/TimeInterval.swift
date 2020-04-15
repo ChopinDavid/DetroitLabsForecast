@@ -11,7 +11,7 @@ import Foundation
 extension TimeInterval {
     func unixToDateString() -> String {
         let date: Date = Date(timeIntervalSince1970: Double(self))
-        let formatter = DateFormatter()
+        let formatter: DateFormatter = DateFormatter()
         // initially set the format based on your datepicker date / server String
         formatter.dateFormat = "E, MMM d, yyyy"
 
@@ -21,7 +21,7 @@ extension TimeInterval {
     
     func unixToTimeString() -> String {
         let date: Date = Date(timeIntervalSince1970: Double(self))
-        let formatter = DateFormatter()
+        let formatter: DateFormatter = DateFormatter()
         // initially set the format based on your datepicker date / server String
         formatter.dateFormat = "h:mm a"
 

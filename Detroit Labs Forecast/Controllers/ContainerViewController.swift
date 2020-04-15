@@ -65,7 +65,7 @@ class ContainerViewController: UIViewController {
         //We have to set the TabBarController's containerView property to this ContainerViewController
         //To do this, we call prepare(for segue:, sender:), cast the segue's destination as a TabBarController, and set the containerViewController accordingly
         //Now, we can communicate between our ContainerViewController and all other view controllers
-        if let tabBarController = segue.destination as? TabBarController {
+        if let tabBarController: TabBarController = segue.destination as? TabBarController {
             tabBarController.containerViewController = self
         }
     }

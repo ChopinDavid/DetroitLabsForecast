@@ -10,7 +10,7 @@ import CoreLocation
 
 extension CLLocation {
     func getPlaceName(completion: @escaping (String?, Error?) -> Void) {
-        let geocoder = CLGeocoder()
+        let geocoder: CLGeocoder = CLGeocoder()
         geocoder.reverseGeocodeLocation(self) { placemarks, error in
             
             guard error == nil else {
@@ -19,7 +19,7 @@ extension CLLocation {
                 return
             }
             
-            guard let placemark = placemarks?[0] else {
+            guard let placemark: CLPlacemark = placemarks?[0] else {
                 print("*** Error in \(#function): placemark is nil")
                 completion(nil, CLLocationError.noPlacemarksReturned)
                 return
@@ -28,14 +28,14 @@ extension CLLocation {
             var nameString = ""
             
             // City
-            let city = placemark.subAdministrativeArea
+            let city: String? = placemark.subAdministrativeArea
             //State
-            let state = placemark.administrativeArea
+            let state: String? = placemark.administrativeArea
             // Country
-            let country = placemark.country
+            let country: String? = placemark.country
             
             //Name, if all else fails
-            let name = placemark.name
+            let name: String? = placemark.name
             
             if city != nil {
                 nameString = city!
