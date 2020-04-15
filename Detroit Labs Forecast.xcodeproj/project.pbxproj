@@ -33,7 +33,7 @@
 		636E28CA244655F40079C549 /* LoadingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingTableViewCell.swift; sourceTree = "<group>"; };
 		636E28CC244657460079C549 /* ForecastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastTableViewCell.swift; sourceTree = "<group>"; };
 		636E28CE244661220079C549 /* TimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
-		63A9756E2446223800A00DCF /* Detroit Labs Forecast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Detroit Labs Forecast.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		63A9756E2446223800A00DCF /* DL Forecast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DL Forecast.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63A975712446223800A00DCF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63A975732446223800A00DCF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		63A975752446223800A00DCF /* CurrentTemperatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentTemperatureViewController.swift; sourceTree = "<group>"; };
@@ -81,7 +81,7 @@
 		63A9756F2446223800A00DCF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				63A9756E2446223800A00DCF /* Detroit Labs Forecast.app */,
+				63A9756E2446223800A00DCF /* DL Forecast.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -174,7 +174,7 @@
 			);
 			name = "Detroit Labs Forecast";
 			productName = "Detroit Labs Forecast";
-			productReference = 63A9756E2446223800A00DCF /* Detroit Labs Forecast.app */;
+			productReference = 63A9756E2446223800A00DCF /* DL Forecast.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -433,7 +433,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.allcapssoftware.Detroit-Labs-Forecast";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "DL Forecast";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -452,7 +452,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.allcapssoftware.Detroit-Labs-Forecast";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "DL Forecast";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

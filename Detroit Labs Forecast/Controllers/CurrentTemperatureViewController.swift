@@ -45,13 +45,17 @@ class CurrentTemperatureViewController: UIViewController {
         //Dark mode is only available in iOS13+
         //Check if the device is running iOS13+ and the user interfae style is dark and change the UI elements accordingly
         if #available(iOS 13.0, *), traitCollection.userInterfaceStyle == .dark {
-            weatherImageView.backgroundColor = .systemGray6
+            if weatherImageView.image == nil {
+                weatherImageView.backgroundColor = .systemGray6
+            }
             openSettingsButton.backgroundColor = .white
             openSettingsButton.setTitleColor(.black, for: .normal)
             reloadButton.backgroundColor = .white
             reloadButton.setTitleColor(.black, for: .normal)
         } else {
-            weatherImageView.backgroundColor = .lightGray
+            if weatherImageView.image == nil {
+                weatherImageView.backgroundColor = .lightGray
+            }
             openSettingsButton.backgroundColor = .black
             openSettingsButton.setTitleColor(.white, for: .normal)
             reloadButton.backgroundColor = .black
@@ -71,6 +75,11 @@ class CurrentTemperatureViewController: UIViewController {
     }
     
     @IBAction func reloadButtonPressed(_ sender: Any) {
+        if #available(iOS 13.0, *), traitCollection.userInterfaceStyle == .dark {
+            weatherImageView.backgroundColor = .systemGray6
+        } else {
+            weatherImageView.backgroundColor = .lightGray
+        }
         reloadButton.isHidden = true
         weatherImageView.image = nil
         activityIndicatorView.startAnimating()
@@ -94,15 +103,9 @@ extension CurrentTemperatureViewController: CLLocationManagerDelegate {
                 group.leave()
                 DispatchQueue.main.async {
                     guard error == nil else {
-                        if let cllocationError = error as? CLLocationError {
-                            //We can handle these known errors
-                            if cllocationError == .noPlacemarksReturned {
-                                //No placemarks were found at this location
-                                self.presentError(description: "The location name could not be found.")
-                            } else {
-                                //We were unable to get the location name
-                                self.presentError(description: "The location name could not be found.")
-                            }
+                        if error is CLLocationError {
+                            //We were unable to get the location name
+                            self.presentError(description: "The location name could not be found.")
                         } else {
                             //Unknown error occured
                             self.presentError()
@@ -123,6 +126,7 @@ extension CurrentTemperatureViewController: CLLocationManagerDelegate {
                         return
                     }
                     self.weatherImageView.sd_setImage(with: URL(string: "https://openweathermap.org/img/wn/\(weatherSnapshot!.weatherIcon)@2x.png")) { (image, error, cacheType, url) in
+                        self.weatherImageView.backgroundColor = .clear
                         self.activityIndicatorView.stopAnimating()
                     }
                     self.temperatureLabel.text = "Temperature: \(String(format: "%.1f", weatherSnapshot!.temp))° F"
@@ -137,6 +141,8 @@ extension CurrentTemperatureViewController: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Failed to find user's location: \(error.localizedDescription)")
+        
+        presentError(description: "Unable to get user's location.")
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {

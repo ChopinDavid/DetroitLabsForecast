@@ -9,6 +9,11 @@
 import UIKit
 import CoreLocation
 class FiveDayTempsViewController: UIViewController {
+    
+    //locationRequestView is shown whenever the user has denied the app's access to their current location
+    @IBOutlet var locationRequestView: UIView!
+    @IBOutlet var openSettingsButton: UIButton!
+    
     @IBOutlet var tableView: UITableView!
     
     var locationManager: CLLocationManager = CLLocationManager()
@@ -29,11 +34,6 @@ class FiveDayTempsViewController: UIViewController {
         updateColors()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        locationManager.requestLocation()
-    }
-    
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         //Update the UI colors anytime the user inteface style changes
@@ -44,8 +44,27 @@ class FiveDayTempsViewController: UIViewController {
         //Dark mode is only available in iOS13+
         //Check if the device is running iOS13+ and the user interfae style is dark and change the UI elements accordingly
         if #available(iOS 13.0, *), traitCollection.userInterfaceStyle == .dark {
+            openSettingsButton.backgroundColor = .white
+            openSettingsButton.setTitleColor(.black, for: .normal)
         } else {
+            openSettingsButton.backgroundColor = .black
+            openSettingsButton.setTitleColor(.white, for: .normal)
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        locationManager.requestLocation()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        openSettingsButton.layer.cornerRadius = openSettingsButton.frame.height / 2
+    }
+    
+    @IBAction func openSettingsButtonPressed(_ sender: Any) {
+        //Open Detroit Lab Forecast's page in the settings app so the user can enable location services
+        UIApplication.shared.open(URL(string:UIApplication.openSettingsURLString)!)
     }
 }
 
@@ -71,6 +90,8 @@ extension FiveDayTempsViewController: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Failed to find user's location: \(error.localizedDescription)")
+        
+        presentError(description: "Unable to get user's location.")
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {

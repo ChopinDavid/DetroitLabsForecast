@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/david/Desktop/Detroit Labs Forecast/detroit.gpx">
+   </FileRef>
+   <FileRef
       location = "group:Detroit Labs Forecast.xcodeproj">
    </FileRef>
    <FileRef
