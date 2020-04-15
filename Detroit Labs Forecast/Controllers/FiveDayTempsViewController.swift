@@ -64,12 +64,12 @@ extension FiveDayTempsViewController: CLLocationManagerDelegate {
         switch status {
         case .authorizedAlways, .authorizedWhenInUse:
             if let tabBarController = tabBarController as? TabBarController {
-                tabBarController.containerViewController.locationRequestViewController.isHidden = true
+                tabBarController.containerViewController.locationRequestView.isHidden = true
             }
             locationManager.requestLocation()
         default:
             if let tabBarController = tabBarController as? TabBarController {
-                tabBarController.containerViewController.locationRequestViewController.isHidden = false
+                tabBarController.containerViewController.locationRequestView.isHidden = false
             }
         }
     }
