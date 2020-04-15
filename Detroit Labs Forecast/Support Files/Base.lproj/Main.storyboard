@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fm4-fw-QpH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NPz-77-OIR">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
@@ -10,7 +10,7 @@
         <!--5 Day Temperatures-->
         <scene sceneID="y8C-jr-znv">
             <objects>
-                <viewController storyboardIdentifier="FiveDayTempsViewController" id="UdL-EJ-DUT" customClass="FiveDayTempsViewController" customModule="Detroit_Labs_Forecast" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="UdL-EJ-DUT" customClass="FiveDayTempsViewController" customModule="Detroit_Labs_Forecast" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GAL-KV-5Xg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -40,26 +40,26 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ForecastCell" id="qte-Hp-Qdc" customClass="ForecastTableViewCell" customModule="Detroit_Labs_Forecast" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="71.5" width="414" height="43"/>
+                                        <rect key="frame" x="0.0" y="71.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qte-Hp-Qdc" id="mKt-Kq-CP4">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday, 12:30 PM" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GJ6-Ve-no0">
-                                                    <rect key="frame" x="49" y="11" width="141" height="21"/>
+                                                    <rect key="frame" x="49.5" y="11" width="141" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cN9-lJ-Wrq">
-                                                    <rect key="frame" x="20" y="11" width="21" height="21"/>
+                                                    <rect key="frame" x="20" y="11" width="21.5" height="21.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="cN9-lJ-Wrq" secondAttribute="height" id="bTn-3Z-nJG"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="55° F" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EbI-EH-XLm">
-                                                    <rect key="frame" x="352" y="11" width="42" height="21"/>
+                                                    <rect key="frame" x="352" y="11" width="42" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -86,82 +86,18 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OZa-CH-jIm">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pinX" translatesAutoresizingMaskIntoConstraints="NO" id="WXj-Gc-W2I">
-                                        <rect key="frame" x="30" y="0.0" width="354" height="517"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In order to use Detroit Labs Forecast you need to enable location services." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPg-zR-aF0">
-                                        <rect key="frame" x="63.5" y="537" width="287" height="41"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="287" id="JBU-Nb-9bz"/>
-                                            <constraint firstAttribute="height" constant="41" id="n4L-mQ-ztu"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Go to Settings &gt; Detroit Labs Forecast &gt; Location &gt; Allow Location Access: While Using the App" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fUu-co-UME">
-                                        <rect key="frame" x="49.5" y="598" width="315" height="61"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="315" id="0Tl-xc-vbb"/>
-                                            <constraint firstAttribute="height" constant="61" id="kPP-uk-K06"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yw9-Oe-vwK">
-                                        <rect key="frame" x="107" y="699" width="200" height="30"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="200" id="Gvg-GW-mXQ"/>
-                                            <constraint firstAttribute="height" constant="30" id="phG-EB-8Bs"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                        <state key="normal" title="Open Settings">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="openSettingsButtonPressed:" destination="UdL-EJ-DUT" eventType="touchUpInside" id="QE9-at-xOG"/>
-                                            <action selector="openSettingsButtonPressed:" destination="dQw-gH-tDh" eventType="touchUpInside" id="TCt-zN-1ry"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstItem="fUu-co-UME" firstAttribute="centerX" secondItem="OZa-CH-jIm" secondAttribute="centerX" id="855-To-9KT"/>
-                                    <constraint firstItem="WXj-Gc-W2I" firstAttribute="top" secondItem="OZa-CH-jIm" secondAttribute="top" id="Apa-TE-F61"/>
-                                    <constraint firstItem="Yw9-Oe-vwK" firstAttribute="top" secondItem="fUu-co-UME" secondAttribute="bottom" constant="40" id="Cxv-Xu-mkB"/>
-                                    <constraint firstAttribute="bottom" secondItem="Yw9-Oe-vwK" secondAttribute="bottom" constant="40" id="Q0o-Lo-Uwx"/>
-                                    <constraint firstItem="WXj-Gc-W2I" firstAttribute="centerX" secondItem="OZa-CH-jIm" secondAttribute="centerX" id="SWQ-T5-H8i"/>
-                                    <constraint firstItem="fUu-co-UME" firstAttribute="top" secondItem="XPg-zR-aF0" secondAttribute="bottom" constant="20" id="SWw-eY-sh2"/>
-                                    <constraint firstItem="Yw9-Oe-vwK" firstAttribute="centerX" secondItem="OZa-CH-jIm" secondAttribute="centerX" id="TXh-xf-8jt"/>
-                                    <constraint firstItem="WXj-Gc-W2I" firstAttribute="leading" secondItem="OZa-CH-jIm" secondAttribute="leading" constant="30" id="VCd-Us-ehU"/>
-                                    <constraint firstItem="XPg-zR-aF0" firstAttribute="centerX" secondItem="OZa-CH-jIm" secondAttribute="centerX" id="iE8-kS-M8H"/>
-                                    <constraint firstAttribute="trailing" secondItem="WXj-Gc-W2I" secondAttribute="trailing" constant="30" id="vYZ-t8-4SH"/>
-                                    <constraint firstItem="XPg-zR-aF0" firstAttribute="top" secondItem="WXj-Gc-W2I" secondAttribute="bottom" constant="20" id="w5p-N8-KgT"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="OZa-CH-jIm" firstAttribute="top" secondItem="6ra-IW-gMQ" secondAttribute="top" id="5DB-Pc-Dab"/>
                             <constraint firstItem="25M-sS-PrI" firstAttribute="leading" secondItem="6ra-IW-gMQ" secondAttribute="leading" id="Ghy-MY-aB2"/>
                             <constraint firstItem="6ra-IW-gMQ" firstAttribute="bottom" secondItem="25M-sS-PrI" secondAttribute="bottom" id="PyK-fr-fAn"/>
-                            <constraint firstItem="6ra-IW-gMQ" firstAttribute="bottom" secondItem="OZa-CH-jIm" secondAttribute="bottom" id="XXV-kb-HbR"/>
                             <constraint firstItem="25M-sS-PrI" firstAttribute="top" secondItem="6ra-IW-gMQ" secondAttribute="top" id="fcx-Ul-t6v"/>
-                            <constraint firstItem="OZa-CH-jIm" firstAttribute="trailing" secondItem="6ra-IW-gMQ" secondAttribute="trailing" id="nc7-o6-E1N"/>
                             <constraint firstItem="6ra-IW-gMQ" firstAttribute="trailing" secondItem="25M-sS-PrI" secondAttribute="trailing" id="vnU-41-cxe"/>
-                            <constraint firstItem="OZa-CH-jIm" firstAttribute="leading" secondItem="6ra-IW-gMQ" secondAttribute="leading" id="yOM-g2-OFK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6ra-IW-gMQ"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="5 Day Temperatures" image="calendar" id="JEd-Pb-Rdx"/>
                     <connections>
-                        <outlet property="locationRequestView" destination="OZa-CH-jIm" id="rvL-IN-oWD"/>
-                        <outlet property="openSettingsButton" destination="Yw9-Oe-vwK" id="s7Y-kX-XbT"/>
                         <outlet property="tableView" destination="25M-sS-PrI" id="Gch-Ah-86u"/>
                     </connections>
                 </viewController>
@@ -172,7 +108,7 @@
         <!--Current Temperature-->
         <scene sceneID="RYa-4G-AoS">
             <objects>
-                <viewController storyboardIdentifier="CurrentTemperatureViewController" id="dQw-gH-tDh" customClass="CurrentTemperatureViewController" customModule="Detroit_Labs_Forecast" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="dQw-gH-tDh" customClass="CurrentTemperatureViewController" customModule="Detroit_Labs_Forecast" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vBM-43-nqf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -213,78 +149,17 @@
                                     <action selector="reloadButtonPressed:" destination="dQw-gH-tDh" eventType="touchUpInside" id="TBM-3o-DFX"/>
                                 </connections>
                             </button>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="56O-v9-3m9">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pinX" translatesAutoresizingMaskIntoConstraints="NO" id="Tym-4I-7wZ">
-                                        <rect key="frame" x="30" y="0.0" width="354" height="517"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In order to use Detroit Labs Forecast you need to enable location services." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tjh-VP-TCV">
-                                        <rect key="frame" x="63.5" y="537" width="287" height="41"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="41" id="8AR-8e-Znx"/>
-                                            <constraint firstAttribute="width" constant="287" id="qzK-7J-HjH"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Go to Settings &gt; Detroit Labs Forecast &gt; Location &gt; Allow Location Access: While Using the App" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LIM-DQ-JvW">
-                                        <rect key="frame" x="49.5" y="598" width="315" height="61"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="61" id="9fe-qO-GHO"/>
-                                            <constraint firstAttribute="width" constant="315" id="vlh-At-Yhx"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a7t-Pa-lrR">
-                                        <rect key="frame" x="107" y="699" width="200" height="30"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="200" id="Pf3-Gc-2xR"/>
-                                            <constraint firstAttribute="height" constant="30" id="QEW-pP-2nS"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                        <state key="normal" title="Open Settings">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="openSettingsButtonPressed:" destination="dQw-gH-tDh" eventType="touchUpInside" id="GiF-Bd-2GL"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstItem="LIM-DQ-JvW" firstAttribute="centerX" secondItem="56O-v9-3m9" secondAttribute="centerX" id="AUf-RG-VeJ"/>
-                                    <constraint firstItem="Tjh-VP-TCV" firstAttribute="centerX" secondItem="56O-v9-3m9" secondAttribute="centerX" id="LVH-vC-uOV"/>
-                                    <constraint firstAttribute="bottom" secondItem="a7t-Pa-lrR" secondAttribute="bottom" constant="40" id="S0P-PT-HBT"/>
-                                    <constraint firstItem="Tym-4I-7wZ" firstAttribute="leading" secondItem="56O-v9-3m9" secondAttribute="leading" constant="30" id="YnT-gs-BOf"/>
-                                    <constraint firstItem="LIM-DQ-JvW" firstAttribute="top" secondItem="Tjh-VP-TCV" secondAttribute="bottom" constant="20" id="hX2-7V-Jt7"/>
-                                    <constraint firstItem="Tym-4I-7wZ" firstAttribute="top" secondItem="56O-v9-3m9" secondAttribute="top" id="oNf-Nf-bdA"/>
-                                    <constraint firstAttribute="trailing" secondItem="Tym-4I-7wZ" secondAttribute="trailing" constant="30" id="r5j-QN-dJA"/>
-                                    <constraint firstItem="Tjh-VP-TCV" firstAttribute="top" secondItem="Tym-4I-7wZ" secondAttribute="bottom" constant="20" id="rQx-xo-WNs"/>
-                                    <constraint firstItem="a7t-Pa-lrR" firstAttribute="top" secondItem="LIM-DQ-JvW" secondAttribute="bottom" constant="40" id="tkM-Ia-gt2"/>
-                                    <constraint firstItem="a7t-Pa-lrR" firstAttribute="centerX" secondItem="56O-v9-3m9" secondAttribute="centerX" id="vuU-aJ-wYZ"/>
-                                    <constraint firstItem="Tym-4I-7wZ" firstAttribute="centerX" secondItem="56O-v9-3m9" secondAttribute="centerX" id="xPI-Gk-AtH"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="LIg-dD-SdP" firstAttribute="leading" secondItem="ZcF-mz-wHX" secondAttribute="leading" constant="40" id="2Aa-fg-mxq"/>
                             <constraint firstItem="6AA-lY-5xL" firstAttribute="centerX" secondItem="vBM-43-nqf" secondAttribute="centerX" id="4G1-sG-whJ"/>
                             <constraint firstItem="0aK-OS-Jjb" firstAttribute="leading" secondItem="ZcF-mz-wHX" secondAttribute="leading" constant="40" id="5kv-nc-OIy"/>
-                            <constraint firstItem="ZcF-mz-wHX" firstAttribute="bottom" secondItem="56O-v9-3m9" secondAttribute="bottom" id="JLE-xw-6lb"/>
                             <constraint firstItem="WAd-UD-wh9" firstAttribute="top" secondItem="LIg-dD-SdP" secondAttribute="bottom" constant="8" id="QPY-eL-iTV"/>
-                            <constraint firstItem="ZcF-mz-wHX" firstAttribute="trailing" secondItem="56O-v9-3m9" secondAttribute="trailing" id="RVN-Zi-KxQ"/>
-                            <constraint firstItem="56O-v9-3m9" firstAttribute="top" secondItem="ZcF-mz-wHX" secondAttribute="top" id="Rjl-lk-u5h"/>
                             <constraint firstItem="WAd-UD-wh9" firstAttribute="leading" secondItem="ZcF-mz-wHX" secondAttribute="leading" constant="40" id="Xcd-xE-kKd"/>
                             <constraint firstItem="6AA-lY-5xL" firstAttribute="top" secondItem="WAd-UD-wh9" secondAttribute="bottom" constant="40" id="Y0Y-j3-IVY"/>
                             <constraint firstItem="0aK-OS-Jjb" firstAttribute="top" secondItem="ZcF-mz-wHX" secondAttribute="top" constant="40" id="aIi-AR-MsL"/>
                             <constraint firstItem="LIg-dD-SdP" firstAttribute="top" secondItem="0aK-OS-Jjb" secondAttribute="bottom" constant="20" id="f0O-5b-x7p"/>
-                            <constraint firstItem="56O-v9-3m9" firstAttribute="leading" secondItem="ZcF-mz-wHX" secondAttribute="leading" id="lBY-YR-0oh"/>
                             <constraint firstItem="35o-HM-h1N" firstAttribute="centerY" secondItem="0aK-OS-Jjb" secondAttribute="centerY" id="ws6-Zc-zQq"/>
                             <constraint firstItem="35o-HM-h1N" firstAttribute="centerX" secondItem="0aK-OS-Jjb" secondAttribute="centerX" id="yDE-jb-1lf"/>
                         </constraints>
@@ -294,8 +169,6 @@
                     <connections>
                         <outlet property="activityIndicatorView" destination="35o-HM-h1N" id="kfZ-YW-UpH"/>
                         <outlet property="locationLabel" destination="WAd-UD-wh9" id="VvF-4u-qjK"/>
-                        <outlet property="locationRequestView" destination="56O-v9-3m9" id="Yv8-aD-zJm"/>
-                        <outlet property="openSettingsButton" destination="a7t-Pa-lrR" id="pgD-Mg-PJr"/>
                         <outlet property="reloadButton" destination="6AA-lY-5xL" id="86c-Bf-1um"/>
                         <outlet property="temperatureLabel" destination="LIg-dD-SdP" id="Pw6-x1-iyJ"/>
                         <outlet property="weatherImageView" destination="0aK-OS-Jjb" id="0Wo-gi-FZS"/>
@@ -305,10 +178,108 @@
             </objects>
             <point key="canvasLocation" x="615" y="-346"/>
         </scene>
+        <!--Container View Controller-->
+        <scene sceneID="WPm-o6-LrS">
+            <objects>
+                <viewController id="NPz-77-OIR" customClass="ContainerViewController" customModule="DL_Forecast" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="54j-ZX-Lbl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DXo-ZH-BNO">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <connections>
+                                    <segue destination="fm4-fw-QpH" kind="embed" id="wR3-Zt-ADu"/>
+                                </connections>
+                            </containerView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5NG-7F-gNN">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pinX" translatesAutoresizingMaskIntoConstraints="NO" id="dby-Da-sUh">
+                                        <rect key="frame" x="30" y="0.0" width="354" height="624"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In order to use Detroit Labs Forecast you need to enable location services." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4PR-0U-cfl">
+                                        <rect key="frame" x="63.5" y="644" width="287" height="41"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="287" id="NBP-Q1-749"/>
+                                            <constraint firstAttribute="height" constant="41" id="O0D-W2-jAm"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Go to Settings &gt; Detroit Labs Forecast &gt; Location &gt; Allow Location Access: While Using the App" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y6t-Ha-30z">
+                                        <rect key="frame" x="49.5" y="705" width="315" height="61"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="61" id="ImP-B7-JIk"/>
+                                            <constraint firstAttribute="width" constant="315" id="U7t-VV-9U3"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fqZ-oh-f7U">
+                                        <rect key="frame" x="107" y="806" width="200" height="50"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="YPc-td-110"/>
+                                            <constraint firstAttribute="width" constant="200" id="e26-Zx-cFP"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <inset key="titleEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
+                                        <state key="normal" title="Open Settings">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="openSettingsButtonPressed:" destination="NPz-77-OIR" eventType="touchUpInside" id="ZeW-AK-64C"/>
+                                            <action selector="openSettingsButtonPressed:" destination="dQw-gH-tDh" eventType="touchUpInside" id="osv-06-t0o"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="dby-Da-sUh" firstAttribute="centerX" secondItem="5NG-7F-gNN" secondAttribute="centerX" id="0Eh-Eo-w1W"/>
+                                    <constraint firstItem="4PR-0U-cfl" firstAttribute="centerX" secondItem="5NG-7F-gNN" secondAttribute="centerX" id="Jkh-3Z-fhZ"/>
+                                    <constraint firstItem="dby-Da-sUh" firstAttribute="top" secondItem="5NG-7F-gNN" secondAttribute="top" id="XmW-dy-LpG"/>
+                                    <constraint firstItem="fqZ-oh-f7U" firstAttribute="centerX" secondItem="5NG-7F-gNN" secondAttribute="centerX" id="aeX-Lg-7Gd"/>
+                                    <constraint firstItem="fqZ-oh-f7U" firstAttribute="top" secondItem="y6t-Ha-30z" secondAttribute="bottom" constant="40" id="cL6-YI-XPh"/>
+                                    <constraint firstItem="y6t-Ha-30z" firstAttribute="centerX" secondItem="5NG-7F-gNN" secondAttribute="centerX" id="dMa-wI-WRD"/>
+                                    <constraint firstItem="dby-Da-sUh" firstAttribute="leading" secondItem="5NG-7F-gNN" secondAttribute="leading" constant="30" id="j5a-IF-gG3"/>
+                                    <constraint firstItem="y6t-Ha-30z" firstAttribute="top" secondItem="4PR-0U-cfl" secondAttribute="bottom" constant="20" id="lcd-Nm-3sR"/>
+                                    <constraint firstItem="4PR-0U-cfl" firstAttribute="top" secondItem="dby-Da-sUh" secondAttribute="bottom" constant="20" id="n5p-iG-7qt"/>
+                                    <constraint firstAttribute="trailing" secondItem="dby-Da-sUh" secondAttribute="trailing" constant="30" id="xqp-pX-H7n"/>
+                                    <constraint firstAttribute="bottom" secondItem="fqZ-oh-f7U" secondAttribute="bottom" constant="40" id="zfH-Rz-qG7"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="DXo-ZH-BNO" firstAttribute="leading" secondItem="QQN-ag-RVJ" secondAttribute="leading" id="5zu-0u-544"/>
+                            <constraint firstAttribute="bottom" secondItem="DXo-ZH-BNO" secondAttribute="bottom" id="Nrz-HM-fge"/>
+                            <constraint firstItem="5NG-7F-gNN" firstAttribute="top" secondItem="54j-ZX-Lbl" secondAttribute="top" id="S6z-KF-WQd"/>
+                            <constraint firstAttribute="trailing" secondItem="5NG-7F-gNN" secondAttribute="trailing" id="XgN-J9-LEP"/>
+                            <constraint firstItem="DXo-ZH-BNO" firstAttribute="top" secondItem="54j-ZX-Lbl" secondAttribute="top" id="a4c-W3-jZA"/>
+                            <constraint firstItem="QQN-ag-RVJ" firstAttribute="trailing" secondItem="DXo-ZH-BNO" secondAttribute="trailing" id="bMP-y0-xl8"/>
+                            <constraint firstAttribute="bottom" secondItem="5NG-7F-gNN" secondAttribute="bottom" id="dzi-OJ-wpt"/>
+                            <constraint firstItem="5NG-7F-gNN" firstAttribute="leading" secondItem="QQN-ag-RVJ" secondAttribute="leading" id="jxm-iO-66I"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QQN-ag-RVJ"/>
+                    </view>
+                    <connections>
+                        <outlet property="instructionsLabel" destination="y6t-Ha-30z" id="aG5-Wv-BJu"/>
+                        <outlet property="issueLabel" destination="4PR-0U-cfl" id="W0T-ln-W3M"/>
+                        <outlet property="locationRequestView" destination="5NG-7F-gNN" id="apc-9O-Cll"/>
+                        <outlet property="openSettingsButton" destination="fqZ-oh-f7U" id="duc-a9-h8D"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wcS-sk-Mj3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1086" y="-22"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="SID-3q-iAJ">
             <objects>
-                <tabBarController id="fm4-fw-QpH" sceneMemberID="viewController">
+                <tabBarController id="fm4-fw-QpH" customClass="TabBarController" customModule="DL_Forecast" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2H5-nf-fTg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

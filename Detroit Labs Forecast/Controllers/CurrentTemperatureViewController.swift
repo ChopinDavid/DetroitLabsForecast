@@ -12,10 +12,6 @@ import SDWebImage
 
 class CurrentTemperatureViewController: UIViewController {
     
-    //locationRequestView is shown whenever the user has denied the app's access to their current location
-    @IBOutlet var locationRequestView: UIView!
-    @IBOutlet var openSettingsButton: UIButton!
-    
     @IBOutlet var weatherImageView: UIImageView!
     @IBOutlet var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet var temperatureLabel: UILabel!
@@ -48,16 +44,12 @@ class CurrentTemperatureViewController: UIViewController {
             if weatherImageView.image == nil {
                 weatherImageView.backgroundColor = .systemGray6
             }
-            openSettingsButton.backgroundColor = .white
-            openSettingsButton.setTitleColor(.black, for: .normal)
             reloadButton.backgroundColor = .white
             reloadButton.setTitleColor(.black, for: .normal)
         } else {
             if weatherImageView.image == nil {
                 weatherImageView.backgroundColor = .lightGray
             }
-            openSettingsButton.backgroundColor = .black
-            openSettingsButton.setTitleColor(.white, for: .normal)
             reloadButton.backgroundColor = .black
             reloadButton.setTitleColor(.white, for: .normal)
         }
@@ -65,13 +57,7 @@ class CurrentTemperatureViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        openSettingsButton.layer.cornerRadius = openSettingsButton.frame.height / 2
         reloadButton.layer.cornerRadius = reloadButton.frame.height / 2
-    }
-    
-    @IBAction func openSettingsButtonPressed(_ sender: Any) {
-        //Open Detroit Lab Forecast's page in the settings app so the user can enable location services
-        UIApplication.shared.open(URL(string:UIApplication.openSettingsURLString)!)
     }
     
     @IBAction func reloadButtonPressed(_ sender: Any) {
@@ -149,10 +135,14 @@ extension CurrentTemperatureViewController: CLLocationManagerDelegate {
         
         switch status {
         case .authorizedAlways, .authorizedWhenInUse:
-            locationRequestView.isHidden = true
+            if let tabBarController = tabBarController as? TabBarController {
+                tabBarController.containerViewController.locationRequestViewController.isHidden = true
+            }
             locationManager.requestLocation()
         default:
-            locationRequestView.isHidden = false
+            if let tabBarController = tabBarController as? TabBarController {
+                tabBarController.containerViewController.locationRequestViewController.isHidden = false
+            }
         }
     }
 }

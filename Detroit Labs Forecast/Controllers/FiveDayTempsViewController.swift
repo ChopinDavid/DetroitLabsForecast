@@ -10,10 +10,6 @@ import UIKit
 import CoreLocation
 class FiveDayTempsViewController: UIViewController {
     
-    //locationRequestView is shown whenever the user has denied the app's access to their current location
-    @IBOutlet var locationRequestView: UIView!
-    @IBOutlet var openSettingsButton: UIButton!
-    
     @IBOutlet var tableView: UITableView!
     
     var locationManager: CLLocationManager = CLLocationManager()
@@ -29,42 +25,11 @@ class FiveDayTempsViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-        
-        //We call this updateColors method to handle the different user interface styles, i.e. light and dark mode
-        updateColors()
-    }
-    
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        //Update the UI colors anytime the user inteface style changes
-        updateColors()
-    }
-    
-    func updateColors() {
-        //Dark mode is only available in iOS13+
-        //Check if the device is running iOS13+ and the user interfae style is dark and change the UI elements accordingly
-        if #available(iOS 13.0, *), traitCollection.userInterfaceStyle == .dark {
-            openSettingsButton.backgroundColor = .white
-            openSettingsButton.setTitleColor(.black, for: .normal)
-        } else {
-            openSettingsButton.backgroundColor = .black
-            openSettingsButton.setTitleColor(.white, for: .normal)
-        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         locationManager.requestLocation()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        openSettingsButton.layer.cornerRadius = openSettingsButton.frame.height / 2
-    }
-    
-    @IBAction func openSettingsButtonPressed(_ sender: Any) {
-        //Open Detroit Lab Forecast's page in the settings app so the user can enable location services
-        UIApplication.shared.open(URL(string:UIApplication.openSettingsURLString)!)
     }
 }
 
@@ -98,11 +63,14 @@ extension FiveDayTempsViewController: CLLocationManagerDelegate {
         
         switch status {
         case .authorizedAlways, .authorizedWhenInUse:
-            //locationRequestView.isHidden = true
+            if let tabBarController = tabBarController as? TabBarController {
+                tabBarController.containerViewController.locationRequestViewController.isHidden = true
+            }
             locationManager.requestLocation()
         default:
-            break
-            //locationRequestView.isHidden = false
+            if let tabBarController = tabBarController as? TabBarController {
+                tabBarController.containerViewController.locationRequestViewController.isHidden = false
+            }
         }
     }
 }

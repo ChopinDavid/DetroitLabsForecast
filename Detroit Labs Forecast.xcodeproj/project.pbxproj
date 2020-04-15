@@ -14,6 +14,8 @@
 		636E28CB244655F40079C549 /* LoadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636E28CA244655F40079C549 /* LoadingTableViewCell.swift */; };
 		636E28CD244657460079C549 /* ForecastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636E28CC244657460079C549 /* ForecastTableViewCell.swift */; };
 		636E28CF244661220079C549 /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636E28CE244661220079C549 /* TimeInterval.swift */; };
+		638F12E024468E2100BABB45 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638F12DF24468E2100BABB45 /* ContainerViewController.swift */; };
+		638F12E224468F6400BABB45 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638F12E124468F6400BABB45 /* TabBarController.swift */; };
 		63A975722446223800A00DCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A975712446223800A00DCF /* AppDelegate.swift */; };
 		63A975742446223800A00DCF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A975732446223800A00DCF /* SceneDelegate.swift */; };
 		63A975762446223800A00DCF /* CurrentTemperatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A975752446223800A00DCF /* CurrentTemperatureViewController.swift */; };
@@ -33,6 +35,8 @@
 		636E28CA244655F40079C549 /* LoadingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingTableViewCell.swift; sourceTree = "<group>"; };
 		636E28CC244657460079C549 /* ForecastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastTableViewCell.swift; sourceTree = "<group>"; };
 		636E28CE244661220079C549 /* TimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
+		638F12DF24468E2100BABB45 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		638F12E124468F6400BABB45 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		63A9756E2446223800A00DCF /* DL Forecast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DL Forecast.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63A975712446223800A00DCF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63A975732446223800A00DCF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,8 +123,10 @@
 		63A975872446225E00A00DCF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				638F12DF24468E2100BABB45 /* ContainerViewController.swift */,
 				63A975752446223800A00DCF /* CurrentTemperatureViewController.swift */,
 				63A975892446232200A00DCF /* FiveDayTempsViewController.swift */,
+				638F12E124468F6400BABB45 /* TabBarController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -271,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				636E28C9244643970079C549 /* WeatherSnapshot.swift in Sources */,
+				638F12E224468F6400BABB45 /* TabBarController.swift in Sources */,
 				636E28C7244642650079C549 /* UIViewController.swift in Sources */,
 				636E28CB244655F40079C549 /* LoadingTableViewCell.swift in Sources */,
 				63A975762446223800A00DCF /* CurrentTemperatureViewController.swift in Sources */,
@@ -280,6 +287,7 @@
 				636E28CF244661220079C549 /* TimeInterval.swift in Sources */,
 				63A975742446223800A00DCF /* SceneDelegate.swift in Sources */,
 				636E28C0244639480079C549 /* CLLocation.swift in Sources */,
+				638F12E024468E2100BABB45 /* ContainerViewController.swift in Sources */,
 				636E28CD244657460079C549 /* ForecastTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
